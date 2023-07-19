@@ -29,7 +29,6 @@ function Helper.getAutoloadConfig()
     if config['autoload-dev'] and config['autoload-dev']['psr-4'] then
         autoload = vim.tbl_extend('force', autoload, config['autoload-dev']['psr-4'])
     end
-    print(vim.inspect(autoload))
     return autoload
 end
 
