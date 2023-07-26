@@ -73,4 +73,11 @@ function Helper.getNamespaceForFile()
     return shortestNamespace .. table.concat(parts, '\\')
 end
 
+function Helper.getClassnameForFile()
+    local file = vim.fn.expand('%:p')
+    local parts = vim.fn.split(file, '/')
+    local filename = table.remove(parts)
+    return string.gsub(filename, '.php$', '')
+end
+
 return Helper
