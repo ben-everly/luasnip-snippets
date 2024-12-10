@@ -1,5 +1,8 @@
+local ls = require 'luasnip'
+local fmt = require 'luasnip.extras.fmt'
+
 return {
-	s('class', fmt(
+	ls.snippet('class', fmt(
 		[[
 			<?php
 
@@ -11,12 +14,12 @@ return {
 			}}
 		]],
 		{
-			f(require 'luasnip-snippets.php-helpers'.getNamespaceForFile),
-			f(require 'luasnip-snippets.php-helpers'.getClassnameForFile),
-			i(0),
+			ls.function_node(require 'luasnip-snippets.php-helpers'.getNamespaceForFile),
+			ls.function_node(require 'luasnip-snippets.php-helpers'.getClassnameForFile),
+			ls.insert_node(0),
 		}
 	)),
-	s('public', fmt(
+	ls.snippet('public', fmt(
 		[[
 			public function {}({}) : {}
 			{{
@@ -24,13 +27,13 @@ return {
 			}}
 		]],
 		{
-			i(1, 'name'),
-			i(2, 'int $param'),
-			i(3, 'void'),
-			i(0, 'return'),
+			ls.insert_node(1, 'name'),
+			ls.insert_node(2, 'int $param'),
+			ls.insert_node(3, 'void'),
+			ls.insert_node(0, 'return'),
 		}
 	)),
-	s('protected', fmt(
+	ls.snippet('protected', fmt(
 		[[
 			protected function {}({}) : {}
 			{{
@@ -38,13 +41,13 @@ return {
 			}}
 		]],
 		{
-			i(1, 'name'),
-			i(2, 'int $param'),
-			i(3, 'void'),
-			i(0, 'return'),
+			ls.insert_node(1, 'name'),
+			ls.insert_node(2, 'int $param'),
+			ls.insert_node(3, 'void'),
+			ls.insert_node(0, 'return'),
 		}
 	)),
-	s('private', fmt(
+	ls.snippet('private', fmt(
 		[[
 			private function {}({}) : {}
 			{{
@@ -52,13 +55,13 @@ return {
 			}}
 		]],
 		{
-			i(1, 'name'),
-			i(2, 'int $param'),
-			i(3, 'void'),
-			i(0, 'return'),
+			ls.insert_node(1, 'name'),
+			ls.insert_node(2, 'int $param'),
+			ls.insert_node(3, 'void'),
+			ls.insert_node(0, 'return'),
 		}
 	)),
-	s('function', fmt(
+	ls.snippet('function', fmt(
 		[[
 			function ({}) : {}
 			{{
@@ -66,78 +69,78 @@ return {
 			}}
 		]],
 		{
-			i(1, 'int $param'),
-			i(2, 'void'),
-			i(0, 'return'),
+			ls.insert_node(1, 'int $param'),
+			ls.insert_node(2, 'void'),
+			ls.insert_node(0, 'return'),
 		}
 	)),
-	s('fn', fmt(
+	ls.snippet('fn', fmt(
 		[[
 			fn ({}) : {} => {};
 		]],
 		{
-			i(1, 'int $param'),
-			i(2, 'void'),
-			i(0, ''),
+			ls.insert_node(1, 'int $param'),
+			ls.insert_node(2, 'void'),
+			ls.insert_node(0, ''),
 		}
 	)),
-	s('if', fmt(
+	ls.snippet('if', fmt(
 		[[
 			if (${}) {{
 				{}
 			}}
 		]],
 		{
-			i(1, 'cond'),
-			i(0, ''),
+			ls.insert_node(1, 'cond'),
+			ls.insert_node(0, ''),
 		}
 	)),
-	s('foreach', fmt(
+	ls.snippet('foreach', fmt(
 		[[
 			foreach (${} as ${} => ${}) {{
 				{}
 			}}
 		]],
 		{
-			i(1, 'array'),
-			i(2, 'key'),
-			i(3, 'value'),
-			i(0, ''),
+			ls.insert_node(1, 'array'),
+			ls.insert_node(2, 'key'),
+			ls.insert_node(3, 'value'),
+			ls.insert_node(0, ''),
 		}
 	)),
-	s('for', fmt(
+	ls.snippet('for', fmt(
 		[[
 			for (${}; ${}; ${}) {{
 				{}
 			}}
 		]],
 		{
-			i(1, 'init'),
-			i(2, 'cond'),
-			i(3, 'step'),
-			i(0, ''),
+			ls.insert_node(1, 'init'),
+			ls.insert_node(2, 'cond'),
+			ls.insert_node(3, 'step'),
+			ls.insert_node(0, ''),
 		}
 	)),
-	s('while', fmt(
+	ls.snippet('while', fmt(
 		[[
 			while (${}) {{
 				{}
 			}}
 		]],
 		{
-			i(1, 'cond'),
-			i(0, ''),
+			ls.insert_node(1, 'cond'),
+			ls.insert_node(0, ''),
 		}
 	)),
-	s('do', fmt(
+	ls.snippet('do', fmt(
 		[[
 			do {{
 				{}
 			}} while (${});
 		]],
 		{
-			i(1, ''),
-			i(0, 'cond'),
+			ls.insert_node(1, ''),
+			ls.insert_node(0, 'cond'),
 		}
 	)),
 }
