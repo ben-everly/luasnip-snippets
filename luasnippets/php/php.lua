@@ -1,5 +1,5 @@
 local ls = require 'luasnip'
-local fmt = require 'luasnip.extras.fmt'
+local fmt = require 'luasnip.extras.fmt'.fmt
 
 return {
 	ls.snippet('class', fmt(
