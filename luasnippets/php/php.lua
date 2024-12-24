@@ -8,7 +8,7 @@ return {
 
 			namespace {};
 
-			class {}
+			class {}{}
 			{{
 				{}
 			}}
@@ -16,6 +16,17 @@ return {
 		{
 			ls.function_node(require 'luasnip-snippets.php-helpers'.getNamespaceForFile),
 			ls.function_node(require 'luasnip-snippets.php-helpers'.getClassnameForFile),
+			ls.choice_node(1, {
+				ls.text_node(''),
+				ls.snippet_node(nil, {
+					ls.text_node(' extends '),
+					ls.insert_node(1),
+				}),
+				ls.snippet_node(nil, {
+					ls.text_node(' implements '),
+					ls.insert_node(1),
+				}),
+			}),
 			ls.insert_node(0),
 		}
 	)),
